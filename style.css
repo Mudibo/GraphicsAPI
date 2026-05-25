@@ -1,0 +1,199 @@
+:root {
+  --space-top: #070b1e;
+  --space-bottom: #01030d;
+  --panel: rgba(9, 14, 34, 0.78);
+  --panel-border: rgba(255, 255, 255, 0.16);
+  --text: #e7ecff;
+  --button-bg: #1f2f63;
+  --button-bg-hover: #2a3d7f;
+  --button-border: rgba(255, 255, 255, 0.3);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at 50% 20%, #10183f 0%, var(--space-top) 45%, var(--space-bottom) 100%);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(250px, 285px);
+  align-items: start;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.app-shell {
+  width: min(980px, 100%);
+  display: grid;
+  gap: 0.75rem;
+  justify-self: center;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(1.1rem, 2.6vw, 1.7rem);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.65rem;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 0.75rem;
+  backdrop-filter: blur(4px);
+}
+
+button {
+  border: 1px solid var(--button-border);
+  border-radius: 0.5rem;
+  background: var(--button-bg);
+  color: var(--text);
+  padding: 0.5rem 0.8rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 140ms ease, transform 140ms ease;
+}
+
+button:hover {
+  background: var(--button-bg-hover);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+.slider-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+}
+
+#speedSlider {
+  width: clamp(140px, 24vw, 220px);
+}
+
+#speedSliderValue {
+  min-width: 3.1rem;
+  text-align: right;
+}
+
+.hint {
+  font-size: 0.86rem;
+  opacity: 0.9;
+}
+
+#solarCanvas {
+  width: 100%;
+  height: min(72vh, 620px);
+  border-radius: 0.9rem;
+  border: 1px solid var(--panel-border);
+  background: radial-gradient(circle at 50% 50%, #060a1f 0%, #040716 55%, #02030b 100%);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35), inset 0 0 42px rgba(110, 140, 255, 0.08);
+  display: block;
+  cursor: grab;
+}
+
+#solarCanvas:active {
+  cursor: grabbing;
+}
+
+.inspector {
+  position: sticky;
+  top: 1rem;
+  width: 100%;
+  padding: 0.9rem;
+  border-radius: 0.9rem;
+  border: 1px solid var(--panel-border);
+  background: var(--panel);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+}
+
+.inspector h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+}
+
+.inspector p {
+  margin: 0 0 0.7rem;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.inspector dl {
+  margin: 0;
+}
+
+.inspector dl div {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.5rem;
+  padding: 0.35rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.inspector dt {
+  opacity: 0.9;
+}
+
+.inspector dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+@media (max-width: 1000px) {
+  body {
+    grid-template-columns: 1fr;
+  }
+
+  .app-shell {
+    width: min(960px, 100%);
+  }
+
+  .inspector {
+    position: static;
+    width: min(960px, 100%);
+    justify-self: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .controls {
+    gap: 0.4rem;
+    justify-content: center;
+  }
+
+  button {
+    flex: 1 1 calc(50% - 0.5rem);
+  }
+
+  .app-shell {
+    width: min(960px, 100%);
+  }
+
+  .slider-wrap {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .hint {
+    width: 100%;
+    text-align: center;
+  }
+
+  .inspector {
+    width: 100%;
+  }
+}

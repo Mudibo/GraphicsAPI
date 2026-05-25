@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solar System Simulation | Sean Mudibo</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <h1>Simulation of the Solar System</h1>
+
+      <section class="controls" aria-label="Simulation controls">
+        <button id="pauseResumeBtn" type="button" aria-label="Pause animation" title="Pause animation">&#10074;&#10074;</button>
+
+        <label class="slider-wrap" for="speedSlider">
+          <span>Time Speed</span>
+          <input id="speedSlider" type="range" min="0.1" max="5" step="0.1" value="1" />
+          <span id="speedSliderValue">1.0x</span>
+        </label>
+
+        <span class="hint">Wheel: zoom | Drag: pan | Click planet: focus</span>
+      </section>
+
+      <canvas id="solarCanvas" aria-label="Animated solar system"></canvas>
+    </main>
+
+    <aside class="inspector" aria-live="polite">
+      <h2>Planet Inspector</h2>
+      <p id="inspectorMessage">Click a planet to inspect it.</p>
+      <dl>
+        <div><dt>Name</dt><dd id="inspectorName">-</dd></div>
+        <div><dt>Orbit Radius</dt><dd id="inspectorOrbitRadius">-</dd></div>
+        <div><dt>Orbit Speed</dt><dd id="inspectorOrbitSpeed">-</dd></div>
+        <div><dt>Current Angle</dt><dd id="inspectorAngle">-</dd></div>
+        <div><dt>Distance from Sun</dt><dd id="inspectorDistance">-</dd></div>
+      </dl>
+    </aside>
+
+    <script src="script.js"></script>
+  </body>
+</html>
